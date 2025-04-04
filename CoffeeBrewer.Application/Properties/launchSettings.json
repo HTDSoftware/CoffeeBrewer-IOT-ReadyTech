@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CoffeeBrewer.Application": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CoffeeBrewer.Domain": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

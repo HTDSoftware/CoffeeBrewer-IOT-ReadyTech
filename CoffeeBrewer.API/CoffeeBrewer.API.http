@@ -1,0 +1,6 @@
+@CoffeeBrewer_IOT_ReadyTech_HostAddress = http://localhost:5208
+
+GET {{CoffeeBrewer_IOT_ReadyTech_HostAddress}}/brew-coffee/
+Accept: application/json
+
+###
