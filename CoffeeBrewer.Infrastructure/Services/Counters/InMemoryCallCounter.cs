@@ -1,6 +1,6 @@
 ﻿using CoffeeBrewer.Domain.Interfaces;
 
-namespace CoffeeBrewer.Infrastructure.CallCounters
+namespace CoffeeBrewer.Infrastructure.Services.Counters
 {
     /// <summary>
     /// Implementation of <see cref="ICallCounter"/> using in-memory storage.

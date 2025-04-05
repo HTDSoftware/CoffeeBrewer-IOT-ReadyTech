@@ -7,12 +7,14 @@ namespace CoffeeBrewer.Application.Services
     /// <summary>
     /// Service for brewing coffee.
     /// </summary>
-    public class CoffeeMachineService(ICallCounter counter, IClock clock) : ICoffeeMachineService
+    public class CoffeeMachineService(ICallCounter counter, IClock clock, IWeatherService weatherService) : ICoffeeMachineService
     {
         // Counter for tracking the number of calls
         private readonly ICallCounter _counter = counter;
+
         // Clock for obtaining the current date and time
         private readonly IClock _clock = clock;
+        private readonly IWeatherService _weatherService = weatherService;
 
         /// <summary>
         /// Asynchronously brews coffee and returns the result.
@@ -33,11 +35,20 @@ namespace CoffeeBrewer.Application.Services
             if (count % 5 == 0)
                 return new ObjectResult(new BrewResult { Status = 503 }) { StatusCode = 503 };
 
+            // Set the initial message
+            var successMessage = "Your piping hot coffee is ready";
+
+            // Set the message depending on the Temperature
+            if (await _weatherService.TooHotForHotDrink())
+            {
+                successMessage = "Your refreshing iced coffee is ready";
+            }
+
             // Create a successful brew result
             var result = new BrewResult
             {
                 Status = 200,
-                Message = "Your piping hot coffee is ready",
+                Message = successMessage,
                 Prepared = now
             };
 

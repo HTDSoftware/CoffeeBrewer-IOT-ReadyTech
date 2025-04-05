@@ -1,7 +1,7 @@
 ﻿using CoffeeBrewer.Domain.Interfaces;
 using StackExchange.Redis;
 
-namespace CoffeeBrewer.Infrastructure.CallCounters
+namespace CoffeeBrewer.Infrastructure.Services.Counters
 {
     /// <summary>
     /// Implementation of <see cref="ICallCounter"/> using Redis.
